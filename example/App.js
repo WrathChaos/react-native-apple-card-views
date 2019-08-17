@@ -8,6 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 import AppleCard from './lib/src/components/AppleCard/AppleCard';
+import AppOfTheDayCard from './lib/src/components/AppOfTheDayCard/AppOfTheDayCard';
 import {AppleHeader} from '@freakycoder/react-native-header-view';
 
 const App = () => {
@@ -22,7 +23,8 @@ const App = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <AppleCard />
+          {/* <AppleCard /> */}
+          <AppOfTheDayCard />
         </View>
       </SafeAreaView>
     </Fragment>
