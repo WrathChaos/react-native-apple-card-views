@@ -1,0 +1,28 @@
+{
+  "name": "react-native-apple-card-view",
+  "version": "0.0.1",
+  "description": "Fully customizable Header View for React Native.",
+  "keywords": [
+    "apple",
+    "apple-card",
+    "card",
+    "view",
+    "card-view",
+    "apple-card-view",
+    "react-native",
+    "icons",
+    "javascript",
+    "ui-lib",
+    "rn"
+  ],
+  "homepage": "https://www.freakycoder.com",
+  "bugs": "https://github.com/WrathChaos/react-native-apple-card-view/issues",
+  "main": "./lib/src/index.js",
+  "repository": "git@github.com:WrathChaos/react-native-apple-card-view.git",
+  "author": "Kuray (FreakyCoder) <kurayogun@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">= 16.x",
+    "react-native": ">= 0.55.x"
+  }
+}
