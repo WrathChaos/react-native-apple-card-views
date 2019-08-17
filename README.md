@@ -1,4 +1,4 @@
-<img alt="React Native Bottom Bar" src="https://github.com/WrathChaos/react-native-header-view/blob/master/assets/Screenshots/logo.png" width="1050"/>
+<!-- <img alt="React Native Bottom Bar" src="https://github.com/WrathChaos/react-native-header-view/blob/master/assets/Screenshots/logo.png" width="1050"/>
 
 
 [![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-native-button)
@@ -229,4 +229,4 @@ FreakyCoder, kurayogun@gmail.com
 
 ## License
 
-React Native Header View Library is available under the MIT license. See the LICENSE file for more info.
+React Native Header View Library is available under the MIT license. See the LICENSE file for more info. -->
