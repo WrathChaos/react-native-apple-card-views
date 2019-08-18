@@ -1,7 +1,7 @@
 {
   "name": "react-native-apple-card-views",
-  "version": "0.0.11",
-  "description": "Fully customizable Header View for React Native.",
+  "version": "0.0.12",
+  "description": "Customizable and perfect clone of Apple, App Store Card Views for React Native.",
   "keywords": [
     "apple",
     "apple-card",
