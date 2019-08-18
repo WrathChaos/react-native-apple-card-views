@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
-import {SafeAreaView, View, StatusBar} from 'react-native';
-import {AppleCard, AppOfTheDayCard} from 'react-native-apple-card-view';
-import {AppleHeader} from '@freakycoder/react-native-header-views';
+import {SafeAreaView, View, ScrollView, StatusBar} from 'react-native';
+import {AppleCard, AppOfTheDayCard} from 'react-native-apple-card-views';
+import {AppleHeader} from '@freakycoder/react-native-header-view';
 
 const App = () => {
   return (
@@ -9,15 +9,20 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
         <AppleHeader />
-        <View
+        <ScrollView
           style={{
             marginTop: 12,
+          }}
+          contentContainerStyle={{
+            paddingBottom: 32,
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          {/* <AppleCard /> */}
+          <View style={{marginBottom: 32}}>
+            <AppleCard />
+          </View>
           <AppOfTheDayCard />
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </Fragment>
   );
