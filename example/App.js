@@ -1,14 +1,7 @@
 import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import {AppleCard, AppOfTheDayCard} from './lib/src/index';
-import {AppleHeader} from '@freakycoder/react-native-header-view';
+import {SafeAreaView, View, StatusBar} from 'react-native';
+import {AppleCard, AppOfTheDayCard} from 'react-native-apple-card-view';
+import {AppleHeader} from '@freakycoder/react-native-header-views';
 
 const App = () => {
   return (
