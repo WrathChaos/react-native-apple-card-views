@@ -1,66 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, Dimensions, ImageBackground} from 'react-native';
+import {Text, View, ImageBackground} from 'react-native';
 import Androw from 'react-native-androw';
-
-const {height, width} = Dimensions.get('window');
+import styles, {_shadowStyle} from './AppleCard.style';
 
 const AppleCard = props => {
-  const {} = props;
+  const {
+    style,
+    source,
+    shadowColor,
+    footnoteText,
+    footnoteStyle,
+    smallTitleStyle,
+    largeTitleStyle,
+  } = props;
   return (
-    <Androw
-      style={{
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 9,
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
-      }}>
+    <Androw style={_shadowStyle(shadowColor)}>
       <ImageBackground
-        style={{height: height * 0.5, width: width * 0.9, borderRadius: 8}}
-        source={require('../../../../assets/hero_bg_brawlstars_.jpg')}
+        style={style || styles.backgroundStyle}
+        source={source}
         resizeMode="cover"
-        borderRadius={8}>
-        <View style={{margin: 16}}>
-          <Text
-            style={{
-              fontSize: 16,
-              opacity: 0.8,
-              color: '#ebe8f9',
-              fontWeight: '700',
-              fontFamily: 'System',
-            }}>
-            NEW GAME
-          </Text>
-          <Text
-            style={{
-              color: '#fffdfe',
-              fontSize: 32,
-              opacity: 0.9,
-              fontWeight: 'bold',
-              fontFamily: 'System',
-            }}>
-            The Brilliance of Brawl Stars
-          </Text>
+        borderRadius={8}
+        {...props}>
+        <View style={styles.topHeaderContainer}>
+          <Text style={smallTitleStyle}>{smallTitle}</Text>
+          <Text style={largeTitleStyle}>{largeTitle}</Text>
         </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 16,
-            left: 16,
-            width: '90%',
-          }}>
-          <Text
-            style={{
-              color: '#fffdfe',
-              fontSize: 12,
-              fontFamily: 'System',
-            }}>
-            The next game from the markers of Clash Royale is here. Tap to learn
-            more.
-          </Text>
+        <View style={styles.bottomContainer}>
+          <Text style={footnoteStyle}>{footnoteText}</Text>
         </View>
       </ImageBackground>
     </Androw>
@@ -68,13 +35,21 @@ const AppleCard = props => {
 };
 
 AppleCard.propTypes = {
-  stars: PropTypes.number,
-  ratings: PropTypes.string,
+  shadowColor: PropTypes.string,
+  smallTitle: PropTypes.string,
+  largeTitle: PropTypes.string,
 };
 
 AppleCard.defaultProps = {
-  stars: 5,
-  ratings: 'Hellooo',
+  shadowColor: '#000',
+  smallTitle: 'NEW GAME',
+  largeTitle: 'The Brilliance of Brawl Stars',
+  smallTitleStyle: styles.smallTitleStyle,
+  largeTitleStyle: styles.largeTitleStyle,
+  footnoteStyle: styles.footnoteStyle,
+  footnoteText:
+    'The next game from the markers of Clash Royale is here. Tap to learn more.',
+  source: require('../../../../assets/hero_bg_brawlstars_.jpg'),
 };
 
 export default AppleCard;

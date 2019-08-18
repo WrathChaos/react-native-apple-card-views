@@ -1,0 +1,66 @@
+{
+  // other settings
+  // formatting using eslint
+  // let editor format using prettier for all other files
+  "editor.formatOnSave": true,
+  // disable editor formatting, so eslint can handle it
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  // available through eslint plugin in vscode
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  // Prettier ESLint Integration
+  "prettier.eslintIntegration": true,
+  // Optimise Image Settings
+  "optimizeImages.app": "Roofless",
+  "editor.foldingStrategy": "indentation",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0,
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.rendererType": "dom",
+  "terminal.external.linuxExec": "zsh",
+  "todohighlight.isEnable": true,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "workbench.startupEditor": "welcomePage",
+  "dart.flutterSdkPath": "/Users/kurayogun/flutter",
+  "workbench.colorTheme": "Noctis Viola",
+  "csharp.suppressDotnetInstallWarning": true,
+  "csharp.suppressProjectJsonWarning": true,
+  "markdown-preview-enhanced.liveUpdate": true,
+  "sync.gist": "7e0c8638e1a1482b2c7c1eac8abb0d60",
+  "workbench.iconTheme": "vscode-icons",
+  "cSpell.userWords": ["gl", "mapbox", "paraboly"],
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "html",
+    "jade",
+    "java",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml"
+  ]
+}
