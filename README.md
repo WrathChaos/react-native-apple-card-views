@@ -1,27 +1,26 @@
-<!-- <img alt="React Native Bottom Bar" src="https://github.com/WrathChaos/react-native-header-view/blob/master/assets/Screenshots/logo.png" width="1050"/>
-
+<img alt="React Native Apple Card Views" src="https://github.com/WrathChaos/react-native-apple-card-views/blob/master/assets/Screenshots/logo.png" width="1050"/>
 
 [![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-native-button)
 
 
-[![Fully customizable Header View with multiple design options for React Native.](https://img.shields.io/badge/-Fully%20customizable%20Header%20View%20with%20multiple%20design%20options%20for%20React%20Native.-lightgrey?style=for-the-badge)](https://github.com/WrathChaos/react-native-header-view)
+[![Customizable and perfect clone of Apple, App Store Card Views for React Native.](https://img.shields.io/badge/-Customizable%20and%20perfect%20clone%20of%20Apple%2C%20App%20Store%20Card%20Views%20for%20React%20Native.-lightgrey?style=for-the-badge)](https://github.com/WrathChaos/react-native-apple-card-views)
 
 
 
-[![npm version](https://img.shields.io/npm/v/@freakycoder/react-native-header-view.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-header-view)
-[![npm](https://img.shields.io/npm/dt/@freakycoder/react-native-header-view.svg?style=for-the-badge)](https://www.npmjs.org/package/@freakycoder/react-native-header-view)
+[![npm version](https://img.shields.io/npm/v/@freakycoder/react-native-apple-card-views.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-apple-card-views)
+[![npm](https://img.shields.io/npm/dt/@freakycoder/react-native-apple-card-views.svg?style=for-the-badge)](https://www.npmjs.org/package/@freakycoder/react-native-apple-card-views)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 
 <p align="center">
-<img alt="React Native Header View" src="https://github.com/WrathChaos/react-native-header-view/blob/master/assets/Screenshots/ss3.png" width="49.7%"/>
-<img alt="React Native Header View" src="https://github.com/WrathChaos/react-native-header-view/blob/master/assets/Screenshots/ss2.png" width="49.7%" height="420"/>
+<img alt="React Native Apple Card Views" src="https://github.com/WrathChaos/react-native-apple-card-views/blob/master/assets/Screenshots/AppleCard.png" width="49.7%" />
+<img alt="React Native Apple Card Views" src="https://github.com/WrathChaos/react-native-apple-card-views/blob/master/assets/Screenshots/AppOfTheDayCard.png" width="49.7%" />
 </p>
 
 <p align="center">
-<img alt="React Native Header View" src="https://github.com/WrathChaos/react-native-header-view/blob/master/assets/Screenshots/ss1.png" width="49.7%"/>
+<img alt="React Native Apple Card Views" src="https://github.com/WrathChaos/react-native-apple-card-views/blob/master/assets/Screenshots/ReactNativeAppleCardViews.gif" width="49.7%"/>
 </p>
 
 
@@ -32,7 +31,7 @@ Add the dependency:
 ### Pure React Native:
 
 ```ruby
-npm i @freakycoder/react-native-header-view
+npm i react-native-apple-card-views
 ```
 
 ## Peer Dependencies
@@ -42,76 +41,28 @@ npm i @freakycoder/react-native-header-view
 ```
 "react": ">= 16.x",
 "react-native": ">= 0.55.x",
-"react-native-iphone-x-helper": ">= 1.x.x",
-"react-native-dynamic-vector-icons": ">= x.x.x"
+"react-native-androw": ">= 0.0.33",
+"react-native-linear-gradient": ">= 2.5.6",
+"react-native-material-ripple": ">= 0.8.0"
 ```
 
 # Options 
 
-- AppleHeader
-- ModernHeader
-- ClassicHeader
+- AppleCard
+- AppOfTheDayCard
 
 # Usage
 
-## Apple Header Usage
+## AppleCard Usage
 
 ```js
-<AppleHeader />
+<AppleCard />
 ```
 
-## Modern Header Usage
+## AppOfTheDayCard Usage
 
 ```js
-<ModernHeader />
-```
-
-#### Advanced Usage
-
-```js
-<ModernHeader
-  text="Profile"
-  rightIconType="Ionicons"
-  rightIconName="ios-settings"
-  rightIconColor={colors.light.primary}
-  leftIconOnPress={() => NavigationService.back()}
-/>
-```
-## Classic Header Usage
-
-#### Basic Usage
-
-```js
-<ClassicHeader
-  headerTitle="Header"
-  rightComponentDisable
-  leftComponentOnPress={() => {}}
-  hitSlops={
-    top: 30,
-    bottom: 30,
-    left: 30,
-    right: 30
-  }
-/>
-```
-#### Advanced Custom Usage
-
-```js
-<ClassicHeader
-  headerTitle="Header"
-  leftComponent={
-    <TouchableOpacity
-      onPress={() => {}}>
-      <Icon name="ios-arrow-back" type="Ionicons" size={30} color="blue" />
-    </TouchableOpacity>
-  }
-  rightComponent={
-    <TouchableOpacity
-      onPress={() => {}}>
-      <Icon name="github" type="AntDesign" size={30} color="purple" />
-    </TouchableOpacity>
-  }
-/>
+<AppOfTheDayCard />
 ```
 
 ### Configuration - Props
@@ -176,57 +127,10 @@ dateTitle, largeTitle, imageSource, onPress
 | centerComponent       | component |    Icon    | set the center component                                                     |
 | centerComponentStyle  |   style   |   style    | set the center component's style                                             |
 
-# Change Log
-
-## [0.4.5](https://github.com/WrathChaos/react-native-header-view/tree/0.4.5) (2019-08-17)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.3.0...0.4.5)
-
-## [0.3.0](https://github.com/WrathChaos/react-native-header-view/tree/0.3.0) (2019-08-12)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.61...0.3.0)
-
-⚠️ BREAKING CHANGE ON WHOLE LIBRARY ! PLEASE READ !
-
-🚀Now, It has two Header which are : 
-
-* ClassicHeader (Old One)
-* ModernHeader (New One)
-
-Usage is not changed however import method is changed. Please check the example ✌️
-
-**Merged pull requests:**
-
-- Bump lodash from 4.17.11 to 4.17.14 in /examples [\#3](https://github.com/WrathChaos/react-native-header-view/pull/3) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump handlebars from 4.1.0 to 4.1.2 in /examples [\#2](https://github.com/WrathChaos/react-native-header-view/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump js-yaml from 3.12.1 to 3.13.1 in /examples [\#1](https://github.com/WrathChaos/react-native-header-view/pull/1) ([dependabot[bot]](https://github.com/apps/dependabot))
-
-## [0.2.61](https://github.com/WrathChaos/react-native-header-view/tree/0.2.61) (2019-03-19)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.6...0.2.61)
-
-## [0.2.6](https://github.com/WrathChaos/react-native-header-view/tree/0.2.6) (2019-03-05)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.5...0.2.6)
-
-## [0.2.5](https://github.com/WrathChaos/react-native-header-view/tree/0.2.5) (2019-03-05)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.4...0.2.5)
-
-## [0.2.4](https://github.com/WrathChaos/react-native-header-view/tree/0.2.4) (2019-03-05)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.3...0.2.4)
-
-## [0.2.3](https://github.com/WrathChaos/react-native-header-view/tree/0.2.3) (2019-03-05)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.2...0.2.3)
-
-## [0.2.2](https://github.com/WrathChaos/react-native-header-view/tree/0.2.2) (2019-03-05)
-[Full Changelog](https://github.com/WrathChaos/react-native-header-view/compare/0.2.0...0.2.2)
-
-## [0.2.0](https://github.com/WrathChaos/react-native-header-view/tree/0.2.0) (2019-02-23)
-
-
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
-
-
 ## Author
 
 FreakyCoder, kurayogun@gmail.com
 
 ## License
 
-React Native Header View Library is available under the MIT license. See the LICENSE file for more info. -->
+React Native Apple Card Views Library is available under the MIT license. See the LICENSE file for more info.
