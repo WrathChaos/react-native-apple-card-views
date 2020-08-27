@@ -1,6 +1,6 @@
 {
   "name": "react-native-apple-card-views",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fully customizable and perfect clone of Apple, App Store Card Views for React Native",
   "keywords": [
     "apple",
@@ -17,7 +17,7 @@
   ],
   "homepage": "https://www.freakycoder.com",
   "bugs": "https://github.com/WrathChaos/react-native-apple-card-views/issues",
-  "main": "./lib/src/index.js",
+  "main": "./build/dist/index.js",
   "repository": "git@github.com:WrathChaos/react-native-apple-card-views.git",
   "author": "Kuray (FreakyCoder) <kurayogun@gmail.com>",
   "license": "MIT",
