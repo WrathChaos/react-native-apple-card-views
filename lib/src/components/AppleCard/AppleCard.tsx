@@ -11,19 +11,21 @@ interface IProps {
   largeTitle?: string;
   shadowColor?: string;
   footnoteText?: string;
+  backgroundStyle?: any;
   footnoteTextStyle?: any;
   smallTitleTextStyle?: any;
   largeTitleTextStyle?: any;
   onPress: () => void;
 }
 
-const AppleCard = (props: IProps) => {
+const AppleCard: React.FC<IProps> = (props: IProps) => {
   const {
     source,
     style,
     shadowColor,
     footnoteText,
     footnoteTextStyle,
+    backgroundStyle,
     smallTitle,
     largeTitle,
     smallTitleTextStyle,
@@ -41,11 +43,11 @@ const AppleCard = (props: IProps) => {
         onPress={onPress}
       >
         <ImageBackground
-          {...props}
           source={source}
-          style={styles.backgroundStyle}
+          style={[styles.backgroundStyle, backgroundStyle]}
           resizeMode="cover"
           borderRadius={8}
+          {...props}
         >
           <View style={styles.topHeaderContainer}>
             <Text style={[styles.smallTitleTextStyle, smallTitleTextStyle]}>

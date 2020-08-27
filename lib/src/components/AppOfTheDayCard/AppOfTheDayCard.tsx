@@ -29,7 +29,7 @@ interface IProps {
   onPress: () => void;
 }
 
-const AppOfTheDayCard = (props: IProps) => {
+const AppOfTheDayCard: React.FC<IProps> = (props: IProps) => {
   const {
     title,
     onPress,
@@ -50,12 +50,12 @@ const AppOfTheDayCard = (props: IProps) => {
   return (
     <Androw style={_shadowStyle(shadowColor)}>
       <Ripple
-        {...props}
         rippleColor="white"
         rippleDuration={1000}
         rippleContainerBorderRadius={8}
         style={styles.container}
         onPress={onPress}
+        {...props}
       >
         <ImageBackground
           borderRadius={8}
