@@ -1,21 +1,34 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { Text, View, ImageBackground } from "react-native";
 import Androw from "react-native-androw";
 import Ripple from "react-native-material-ripple";
 import styles, { _shadowStyle } from "./AppleCard.style";
 
-const AppleCard = props => {
+interface IProps {
+  style?: any;
+  source: any;
+  smallTitle?: string;
+  largeTitle?: string;
+  shadowColor?: string;
+  footnoteText?: string;
+  footnoteTextStyle?: any;
+  smallTitleTextStyle?: any;
+  largeTitleTextStyle?: any;
+  onPress: () => void;
+}
+
+const AppleCard = (props: IProps) => {
   const {
     source,
+    style,
     shadowColor,
     footnoteText,
-    footnoteStyle,
+    footnoteTextStyle,
     smallTitle,
     largeTitle,
-    smallTitleStyle,
-    largeTitleStyle,
-    onPress
+    smallTitleTextStyle,
+    largeTitleTextStyle,
+    onPress,
   } = props;
   return (
     <Androw style={_shadowStyle(shadowColor)}>
@@ -23,22 +36,28 @@ const AppleCard = props => {
         rippleColor="white"
         rippleDuration={1000}
         rippleContainerBorderRadius={8}
-        style={styles.container}
+        style={[style]}
         onPress={onPress}
       >
         <ImageBackground
-          style={styles.backgroundStyle}
+          {...props}
           source={source}
+          style={styles.backgroundStyle}
           resizeMode="cover"
           borderRadius={8}
-          {...props}
         >
           <View style={styles.topHeaderContainer}>
-            <Text style={smallTitleStyle}>{smallTitle}</Text>
-            <Text style={largeTitleStyle}>{largeTitle}</Text>
+            <Text style={[styles.smallTitleTextStyle, smallTitleTextStyle]}>
+              {smallTitle}
+            </Text>
+            <Text style={[styles.largeTitleTextStyle, largeTitleTextStyle]}>
+              {largeTitle}
+            </Text>
           </View>
           <View style={styles.bottomContainer}>
-            <Text style={footnoteStyle}>{footnoteText}</Text>
+            <Text style={[styles.footnoteTextStyle, footnoteTextStyle]}>
+              {footnoteText}
+            </Text>
           </View>
         </ImageBackground>
       </Ripple>
@@ -46,22 +65,12 @@ const AppleCard = props => {
   );
 };
 
-AppleCard.propTypes = {
-  shadowColor: PropTypes.string,
-  smallTitle: PropTypes.string,
-  largeTitle: PropTypes.string
-};
-
 AppleCard.defaultProps = {
   shadowColor: "#000",
   smallTitle: "NEW GAME",
   largeTitle: "The Brilliance of Brawl Stars",
-  smallTitleStyle: styles.smallTitleStyle,
-  largeTitleStyle: styles.largeTitleStyle,
-  footnoteStyle: styles.footnoteStyle,
   footnoteText:
     "The next game from the markers of Clash Royale is here. Tap to learn more.",
-  source: require("../../../../assets/temp/hero_bg_brawlstars_.jpg")
 };
 
 export default AppleCard;

@@ -1,35 +1,56 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import {
   Text,
   View,
   Image,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import Androw from "react-native-androw";
 import Ripple from "react-native-material-ripple";
 import LinearGradient from "react-native-linear-gradient";
 import styles, { _shadowStyle } from "./AppOfTheDayCard.style";
 
-const AppOfTheDayCard = props => {
+interface IProps {
+  title?: string;
+  iconStyle?: any;
+  iconSource: any;
+  subtitle?: string;
+  largeTitle?: string;
+  buttonText?: string;
+  titleTextStyle?: any;
+  shadowColor?: string;
+  backgroundSource: any;
+  subtitleTextStyle?: any;
+  buttonSubtitle?: string;
+  largeTitleTextStyle?: any;
+  buttonSubtitleTextStyle?: any;
+  buttonOnPress: () => void;
+  onPress: () => void;
+}
+
+const AppOfTheDayCard = (props: IProps) => {
   const {
-    shadowColor,
-    backgroundSource,
-    iconSource,
-    largeTitle,
-    largeTitleStyle,
-    iconStyle,
     title,
+    onPress,
     subtitle,
+    iconStyle,
+    largeTitle,
     buttonText,
-    buttonSubtitle,
+    iconSource,
+    shadowColor,
     buttonOnPress,
-    onPress
+    titleTextStyle,
+    buttonSubtitle,
+    backgroundSource,
+    subtitleTextStyle,
+    largeTitleTextStyle,
+    buttonSubtitleTextStyle,
   } = props;
   return (
     <Androw style={_shadowStyle(shadowColor)}>
       <Ripple
+        {...props}
         rippleColor="white"
         rippleDuration={1000}
         rippleContainerBorderRadius={8}
@@ -44,7 +65,9 @@ const AppOfTheDayCard = props => {
           {...props}
         >
           <View style={styles.innerContainer}>
-            <Text style={largeTitleStyle}>{largeTitle}</Text>
+            <Text style={[styles.largeTitleTextStyle, largeTitleTextStyle]}>
+              {largeTitle}
+            </Text>
             <LinearGradient
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -54,16 +77,22 @@ const AppOfTheDayCard = props => {
             >
               <View style={styles.gradientInnerContainer}>
                 <Image
-                  style={iconStyle}
+                  style={[styles.iconStyle, iconStyle]}
                   borderRadius={12}
                   resizeMode="cover"
                   source={iconSource}
                 />
                 <View style={styles.titleContainer}>
-                  <Text numberOfLines={2} style={styles.titleStyle}>
+                  <Text
+                    numberOfLines={2}
+                    style={[styles.titleTextStyle, titleTextStyle]}
+                  >
                     {title}
                   </Text>
-                  <Text numberOfLines={1} style={styles.subtitleStyle}>
+                  <Text
+                    numberOfLines={1}
+                    style={[styles.subtitleTextStyle, subtitleTextStyle]}
+                  >
                     {subtitle}
                   </Text>
                 </View>
@@ -74,7 +103,12 @@ const AppOfTheDayCard = props => {
                   >
                     <Text style={styles.buttonTextStyle}>{buttonText}</Text>
                   </TouchableOpacity>
-                  <Text style={styles.buttonSubtitleStyle}>
+                  <Text
+                    style={[
+                      styles.buttonSubtitleTextStyle,
+                      buttonSubtitleTextStyle,
+                    ]}
+                  >
                     {buttonSubtitle}
                   </Text>
                 </View>
@@ -87,25 +121,13 @@ const AppOfTheDayCard = props => {
   );
 };
 
-AppOfTheDayCard.propTypes = {
-  shadowColor: PropTypes.string,
-  largeTitle: PropTypes.string,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  buttonText: PropTypes.string
-};
-
 AppOfTheDayCard.defaultProps = {
   shadowColor: "#000",
-  iconStyle: styles.iconStyle,
   title: "Colorfy: Coloring Art Games",
   subtitle: "Drawing & painting for  everyone",
-  largeTitleStyle: styles.largeTitleStyle,
   largeTitle: `APP` + "\n" + `OF THE` + "\n" + `DAY`,
   buttonText: "GET",
   buttonSubtitle: "In-App Purchases",
-  iconSource: require("../../../../assets/temp/Colorfy.jpg"),
-  backgroundSource: require("../../../../assets/temp/ColorfyBG.jpg")
 };
 
 export default AppOfTheDayCard;

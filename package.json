@@ -21,11 +21,47 @@
   "repository": "git@github.com:WrathChaos/react-native-apple-card-views.git",
   "author": "Kuray (FreakyCoder) <kurayogun@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "cd lib && tsc && cp ../package.json ../build/dist/ && Echo Build completed!",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
   "peerDependencies": {
-    "react": ">= 16.x",
+    "react": ">= 16.x.x",
     "react-native": ">= 0.55.x",
     "react-native-androw": ">= 0.0.33",
     "react-native-linear-gradient": ">= 2.5.6",
     "react-native-material-ripple": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.22",
+    "@types/react-native": "^0.63.0",
+    "react-native-typescript-transformer": "^1.2.13",
+    "typescript": "^3.7.4",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.js --fix-dry-run"
+    ]
+  },
+  "dependencies": {
+    "react-native-androw": "0.0.34",
+    "react-native-apple-header": "^0.1.1",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-material-ripple": "^0.9.1"
   }
 }

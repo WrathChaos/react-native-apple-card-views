@@ -12,8 +12,6 @@
   "eslint.alwaysShowStatus": true,
   // Prettier ESLint Integration
   "prettier.eslintIntegration": true,
-  // Optimise Image Settings
-  "optimizeImages.app": "Roofless",
   "editor.foldingStrategy": "indentation",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 0,
@@ -62,5 +60,8 @@
     "typescriptreact",
     "yaml",
     "yml"
+  ],
+  "cSpell.words": [
+    "Androw"
   ]
 }
