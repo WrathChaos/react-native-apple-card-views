@@ -21,7 +21,6 @@ const App = () => {
         >
           <View style={{ marginBottom: 32 }}>
             <AppleCard
-              // smallTitle=""
               footnoteText=""
               source={require("./assets/hero_bg_brawlstars_.jpg")}
               onPress={() => {}}
