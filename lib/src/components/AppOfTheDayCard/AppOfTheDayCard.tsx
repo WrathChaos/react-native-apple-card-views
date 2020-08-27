@@ -14,13 +14,13 @@ import styles, { _shadowStyle } from "./AppOfTheDayCard.style";
 interface IProps {
   title?: string;
   iconStyle?: any;
-  iconSource: any;
+  iconSource: any; // ? Not Optional
   subtitle?: string;
   largeTitle?: string;
   buttonText?: string;
   titleTextStyle?: any;
   shadowColor?: string;
-  backgroundSource: any;
+  backgroundSource: any; // ? Not Optional
   subtitleTextStyle?: any;
   buttonSubtitle?: string;
   largeTitleTextStyle?: any;

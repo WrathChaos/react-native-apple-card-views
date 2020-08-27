@@ -6,7 +6,7 @@ import styles, { _shadowStyle } from "./AppleCard.style";
 
 interface IProps {
   style?: any;
-  source: any;
+  source: any; // ? Not Optional
   smallTitle?: string;
   largeTitle?: string;
   shadowColor?: string;
@@ -30,6 +30,7 @@ const AppleCard = (props: IProps) => {
     largeTitleTextStyle,
     onPress,
   } = props;
+
   return (
     <Androw style={_shadowStyle(shadowColor)}>
       <Ripple

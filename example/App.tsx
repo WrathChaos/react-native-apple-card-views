@@ -9,7 +9,6 @@ const App = () => {
     <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1 }}>
-        c
         <AppleHeader />
         <ScrollView
           style={{
@@ -22,9 +21,17 @@ const App = () => {
           }}
         >
           <View style={{ marginBottom: 32 }}>
-            <AppleCard />
+            <AppleCard
+              source={require("./assets/hero_bg_brawlstars_.jpg")}
+              onPress={() => {}}
+            />
           </View>
-          <AppOfTheDayCard />
+          <AppOfTheDayCard
+            iconSource={require("./assets/Colorfy.jpg")}
+            backgroundSource={require("./assets/ColorfyBG.jpg")}
+            onPress={() => {}}
+            buttonOnPress={() => {}}
+          />
         </ScrollView>
       </SafeAreaView>
     </Fragment>
