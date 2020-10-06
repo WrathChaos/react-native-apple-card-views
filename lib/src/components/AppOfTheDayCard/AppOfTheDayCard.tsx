@@ -7,8 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Androw from "react-native-androw";
-import Ripple from "react-native-material-ripple";
 import LinearGradient from "react-native-linear-gradient";
+import RNBounceable from "@freakycoder/react-native-bounceable";
+/**
+ * ? Local Imports
+ */
 import styles, { _shadowStyle } from "./AppOfTheDayCard.style";
 
 interface IProps {
@@ -49,13 +52,12 @@ const AppOfTheDayCard: React.FC<IProps> = (props: IProps) => {
   } = props;
   return (
     <Androw style={_shadowStyle(shadowColor)}>
-      <Ripple
-        rippleColor="white"
-        rippleDuration={1000}
-        rippleContainerBorderRadius={8}
+      <RNBounceable
+        bounceEffect={0.95}
+        bounceFriction={4}
+        {...props}
         style={styles.container}
         onPress={onPress}
-        {...props}
       >
         <ImageBackground
           borderRadius={8}
@@ -116,7 +118,7 @@ const AppOfTheDayCard: React.FC<IProps> = (props: IProps) => {
             </LinearGradient>
           </View>
         </ImageBackground>
-      </Ripple>
+      </RNBounceable>
     </Androw>
   );
 };

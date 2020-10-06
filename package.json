@@ -1,8 +1,10 @@
 {
   "name": "react-native-apple-card-views",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Fully customizable and perfect clone of Apple, App Store Card Views for React Native",
   "keywords": [
+    "bounceable",
+    "bouncy",
     "apple",
     "apple-card",
     "card",
@@ -33,7 +35,7 @@
     "react-native": ">= 0.55.x",
     "react-native-androw": ">= 0.0.33",
     "react-native-linear-gradient": ">= 2.5.6",
-    "react-native-material-ripple": ">= 0.8.0"
+    "@freakycoder/react-native-bounceable": "^0.1.1"
   },
   "devDependencies": {
     "@types/react": "^16.9.22",

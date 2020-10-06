@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { SafeAreaView, View, ScrollView, StatusBar } from "react-native";
 import AppleHeader from "react-native-apple-header";
-import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
+import { AppleCard, AppOfTheDayCard } from "./build/dist/index";
 
 const App = () => {
   return (
@@ -25,9 +25,6 @@ const App = () => {
               source={require("./assets/hero_bg_brawlstars_.jpg")}
               onPress={() => {}}
               resizeMode="cover"
-              backgroundStyle={{
-                height: 200,
-              }}
             />
           </View>
           <AppOfTheDayCard
@@ -35,7 +32,6 @@ const App = () => {
             backgroundSource={require("./assets/ColorfyBG.jpg")}
             onPress={() => {}}
             buttonOnPress={() => {}}
-            rippleColor="orange"
           />
         </ScrollView>
       </SafeAreaView>

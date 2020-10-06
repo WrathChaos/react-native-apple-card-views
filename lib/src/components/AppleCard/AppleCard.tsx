@@ -1,7 +1,10 @@
 import * as React from "react";
 import { Text, View, ImageBackground } from "react-native";
 import Androw from "react-native-androw";
-import Ripple from "react-native-material-ripple";
+import RNBounceable from "@freakycoder/react-native-bounceable";
+/**
+ * ? Local Imports
+ */
 import styles, { _shadowStyle } from "./AppleCard.style";
 
 interface IProps {
@@ -35,19 +38,19 @@ const AppleCard: React.FC<IProps> = (props: IProps) => {
 
   return (
     <Androw style={_shadowStyle(shadowColor)}>
-      <Ripple
-        rippleColor="white"
-        rippleDuration={1000}
-        rippleContainerBorderRadius={8}
-        style={[style]}
+      <RNBounceable
+        bounceEffect={0.95}
+        bounceFriction={4}
+        {...props}
+        style={style}
         onPress={onPress}
       >
         <ImageBackground
-          source={source}
-          style={[styles.backgroundStyle, backgroundStyle]}
-          resizeMode="cover"
-          borderRadius={8}
           {...props}
+          source={source}
+          borderRadius={8}
+          resizeMode="cover"
+          style={[styles.backgroundStyle, backgroundStyle]}
         >
           <View style={styles.topHeaderContainer}>
             <Text style={[styles.smallTitleTextStyle, smallTitleTextStyle]}>
@@ -63,7 +66,7 @@ const AppleCard: React.FC<IProps> = (props: IProps) => {
             </Text>
           </View>
         </ImageBackground>
-      </Ripple>
+      </RNBounceable>
     </Androw>
   );
 };

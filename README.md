@@ -34,11 +34,9 @@ npm i react-native-apple-card-views
 ##### IMPORTANT! You need install them.
 
 ```bash
-"react": ">= 16.x",
-"react-native": ">= 0.55.x",
 "react-native-androw": ">= 0.0.33",
 "react-native-linear-gradient": ">= 2.5.6",
-"react-native-material-ripple": ">= 0.8.0"
+"@freakycoder/react-native-bounceable": ">= 0.1.1"
 ```
 
 # Options
@@ -72,7 +70,6 @@ npm i react-native-apple-card-views
   backgroundSource={require("./assets/ColorfyBG.jpg")}
   onPress={() => {}}
   buttonOnPress={() => {}}
-  rippleColor="orange"
 />
 ```
 
