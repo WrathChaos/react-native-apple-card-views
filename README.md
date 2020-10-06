@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-<img alt="React Native Apple Card Views" src="assets/Screenshots/ReactNativeAppleCardViews.gif" width="49.7%"/>
+<img alt="React Native Apple Card Views" src="assets/Screenshots/RN-Apple-Card-Views.gif" />
 </p>
 
 ## Installation

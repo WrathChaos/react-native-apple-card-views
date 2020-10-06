@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { SafeAreaView, View, ScrollView, StatusBar } from "react-native";
 import AppleHeader from "react-native-apple-header";
-import { AppleCard, AppOfTheDayCard } from "./build/dist/index";
+import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
 
 const App = () => {
   return (
@@ -11,9 +11,10 @@ const App = () => {
         <AppleHeader />
         <ScrollView
           style={{
-            marginTop: 12,
+            marginTop: 16,
           }}
           contentContainerStyle={{
+            paddingTop: 16,
             paddingBottom: 32,
             alignItems: "center",
             justifyContent: "center",
