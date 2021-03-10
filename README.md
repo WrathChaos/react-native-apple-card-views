@@ -11,12 +11,12 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 <p align="center">
-<img alt="React Native Apple Card Views" src="assets/Screenshots/AppleCard.png" width="49.7%" />
-<img alt="React Native Apple Card Views" src="assets/Screenshots/AppOfTheDayCard.png" width="49.7%" />
+  <img alt="React Native Apple Card Views" src="assets/Screenshots/AppleCard.png" width="49.7%" />
+  <img alt="React Native Apple Card Views" src="assets/Screenshots/AppOfTheDayCard.png" width="49.7%" />
 </p>
 
 <p align="center">
-<img alt="React Native Apple Card Views" src="assets/Screenshots/RN-Apple-Card-Views.gif" />
+  <img alt="React Native Apple Card Views" src="assets/Screenshots/RN-Apple-Card-Views.gif" />
 </p>
 
 ## Installation
