@@ -23,7 +23,7 @@
 
 Add the dependency:
 
-### Pure React Native:
+### Pure React Native
 
 ```bash
 npm i react-native-apple-card-views
@@ -31,7 +31,7 @@ npm i react-native-apple-card-views
 
 ## Peer Dependencies
 
-##### IMPORTANT! You need install them.
+##### IMPORTANT! You need install them
 
 ```bash
 "react-native-androw": ">= 0.0.33",
@@ -93,22 +93,24 @@ npm i react-native-apple-card-views
 
 #### AppOfTheDayCard Props
 
-| Property            |   Type   |    Default     | Description                            |
-| ------------------- | :------: | :------------: | -------------------------------------- |
-| shadowColor         |  color   |      #000      | change the main card's shadow color    |
-| backgroundSource    |  image   | default image  | set the image background for main card |
-| iconSource          |  image   | default image  | set the logo image                     |
-| largeTitle          |  string  | APP OF THE DAY | change the main large title            |
-| title               |  string  |       16       | change the title                       |
-| subtitle            |  string  |       16       | change the subtitle                    |
-| buttonText          |  string  |    Ionicons    | change the button's text               |
-| buttonSubtitle      |  string  |       25       | change the button's bottom subtitle    |
-| largeTitleTextStyle |  style   |    default     | set the custom style for large title   |
-| subtitleTextStyle   |  style   |    default     | set the custom style for subtitle text |
-| titleTextStyle      |  style   |    default     | set the custom style for title text    |
-| iconStyle           |  style   |    default     | set the custom style for icon          |
-| buttonOnPress       | function |      null      | set a function for button's onPress    |
-| onPress             | function |      null      | set a function for main card's onPress |
+| Property            |     Type      |              Default              | Description                                       |
+| ------------------- | :-----------: | :-------------------------------: | ------------------------------------------------- |
+| style               |     style     |              default              | change the style of the card and image background |
+| shadowStyle         |     style     |              default              | change the style of the card's shadow             |
+| backgroundSource    |     image     |           default image           | set the image background for main card            |
+| iconSource          |     image     |           default image           | set the logo image                                |
+| largeTitle          |    string     |         "APP OF THE DAY"          | change the main large title                       |
+| title               |    string     |   "Colorfy: Coloring Art Games"   | change the title text                             |
+| subtitle            |    string     | "Drawing & painting for everyone" | change the subtitle text                          |
+| buttonText          |    string     |               "GET"               | change the button's text                          |
+| gradientColors      | Array<string> | ["#de9c7c", "#ef9f81", "#efa192"] | change the gradient colors                        |
+| buttonSubtitle      |    string     |        "In-App Purchases"         | change the button's bottom subtitle               |
+| largeTitleTextStyle |     style     |              default              | set the custom style for large title              |
+| subtitleTextStyle   |     style     |              default              | set the custom style for subtitle text            |
+| titleTextStyle      |     style     |              default              | set the custom style for title text               |
+| iconStyle           |     style     |              default              | set the custom style for icon                     |
+| buttonOnPress       |   function    |               null                | set a function for button's onPress               |
+| onPress             |   function    |               null                | set a function for main card's onPress            |
 
 ## Author
 

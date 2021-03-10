@@ -3,6 +3,10 @@ import {
   Text,
   View,
   Image,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  ImageStyle,
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
@@ -12,124 +16,138 @@ import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
  * ? Local Imports
  */
-import styles, { _shadowStyle } from "./AppOfTheDayCard.style";
+import styles from "./AppOfTheDayCard.style";
 
-interface IProps {
-  title?: string;
-  iconStyle?: any;
-  iconSource: any; // ? Not Optional
+type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
+type CustomImageStyleProp =
+  | StyleProp<ImageStyle>
+  | Array<StyleProp<ImageStyle>>;
+type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<ViewStyle>>;
+
+interface IAppOfTheDayCardProps {
+  style?: CustomStyleProp;
+  iconStyle?: CustomImageStyleProp;
+  shadowStyle?: CustomStyleProp;
+  titleTextStyle?: CustomTextStyleProp;
+  subtitleTextStyle?: CustomTextStyleProp;
+  largeTitleTextStyle?: CustomTextStyleProp;
+  buttonSubtitleTextStyle?: CustomTextStyleProp;
+  gradientColors?: Array<string>;
+  title: string;
+  iconSource: any;
   subtitle?: string;
   largeTitle?: string;
   buttonText?: string;
-  titleTextStyle?: any;
   shadowColor?: string;
-  backgroundSource: any; // ? Not Optional
-  subtitleTextStyle?: any;
+  backgroundSource: any;
   buttonSubtitle?: string;
-  largeTitleTextStyle?: any;
-  buttonSubtitleTextStyle?: any;
   buttonOnPress: () => void;
   onPress: () => void;
 }
 
-const AppOfTheDayCard: React.FC<IProps> = (props: IProps) => {
-  const {
-    title,
-    onPress,
-    subtitle,
-    iconStyle,
-    largeTitle,
-    buttonText,
-    iconSource,
-    shadowColor,
-    buttonOnPress,
-    titleTextStyle,
-    buttonSubtitle,
-    backgroundSource,
-    subtitleTextStyle,
-    largeTitleTextStyle,
-    buttonSubtitleTextStyle,
-  } = props;
+const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
+  style,
+  iconStyle,
+  iconSource,
+  shadowStyle,
+  backgroundSource,
+  titleTextStyle,
+  subtitleTextStyle,
+  largeTitleTextStyle,
+  buttonSubtitleTextStyle,
+  buttonOnPress,
+  onPress,
+  buttonText = "GET",
+  buttonSubtitle = "In-App Purchases",
+  title = "Colorfy: Coloring Art Games",
+  subtitle = "Drawing & painting for  everyone",
+  largeTitle = `APP` + "\n" + `OF THE` + "\n" + `DAY`,
+  gradientColors = ["#de9c7c", "#ef9f81", "#efa192"],
+  ...rest
+}) => {
+  const renderLargeTitle = () => (
+    <Text style={[styles.largeTitleTextStyle, largeTitleTextStyle]}>
+      {largeTitle}
+    </Text>
+  );
+
+  const renderIcon = () => (
+    <Image
+      borderRadius={12}
+      resizeMode="cover"
+      source={iconSource}
+      style={[styles.iconStyle, iconStyle]}
+    />
+  );
+
+  const renderTitleContainer = () => (
+    <View style={styles.titleContainer}>
+      <Text numberOfLines={2} style={[styles.titleTextStyle, titleTextStyle]}>
+        {title}
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={[styles.subtitleTextStyle, subtitleTextStyle]}
+      >
+        {subtitle}
+      </Text>
+    </View>
+  );
+
+  const renderButtonContainer = () => (
+    <View style={styles.buttonContainer}>
+      <TouchableOpacity
+        style={styles.buttonInnerContainer}
+        onPress={buttonOnPress}
+      >
+        <Text style={styles.buttonTextStyle}>{buttonText}</Text>
+      </TouchableOpacity>
+      <Text style={[styles.buttonSubtitleTextStyle, buttonSubtitleTextStyle]}>
+        {buttonSubtitle}
+      </Text>
+    </View>
+  );
+
+  const renderLinearGradientContainer = () => (
+    <LinearGradient
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      colors={gradientColors}
+      style={styles.gradientStyle}
+      {...rest}
+    >
+      <View style={styles.gradientInnerContainer}>
+        {renderIcon()}
+        {renderTitleContainer()}
+        {renderButtonContainer()}
+      </View>
+    </LinearGradient>
+  );
+
   return (
-    <Androw style={_shadowStyle(shadowColor)}>
+    <Androw style={[styles.shadowStyle, shadowStyle]}>
       <RNBounceable
         bounceEffect={0.95}
         bounceFriction={4}
-        {...props}
-        style={styles.container}
+        {...rest}
+        style={[styles.container, style]}
         onPress={onPress}
       >
         <ImageBackground
           borderRadius={8}
           resizeMode="cover"
-          style={styles.container}
+          {...rest}
+          style={[styles.container, style]}
           source={backgroundSource}
-          {...props}
         >
           <View style={styles.innerContainer}>
-            <Text style={[styles.largeTitleTextStyle, largeTitleTextStyle]}>
-              {largeTitle}
-            </Text>
-            <LinearGradient
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              colors={["#de9c7c", "#ef9f81", "#efa192"]}
-              style={styles.gradientStyle}
-              {...props}
-            >
-              <View style={styles.gradientInnerContainer}>
-                <Image
-                  style={[styles.iconStyle, iconStyle]}
-                  borderRadius={12}
-                  resizeMode="cover"
-                  source={iconSource}
-                />
-                <View style={styles.titleContainer}>
-                  <Text
-                    numberOfLines={2}
-                    style={[styles.titleTextStyle, titleTextStyle]}
-                  >
-                    {title}
-                  </Text>
-                  <Text
-                    numberOfLines={1}
-                    style={[styles.subtitleTextStyle, subtitleTextStyle]}
-                  >
-                    {subtitle}
-                  </Text>
-                </View>
-                <View style={styles.buttonContainer}>
-                  <TouchableOpacity
-                    style={styles.buttonInnerContainer}
-                    onPress={buttonOnPress}
-                  >
-                    <Text style={styles.buttonTextStyle}>{buttonText}</Text>
-                  </TouchableOpacity>
-                  <Text
-                    style={[
-                      styles.buttonSubtitleTextStyle,
-                      buttonSubtitleTextStyle,
-                    ]}
-                  >
-                    {buttonSubtitle}
-                  </Text>
-                </View>
-              </View>
-            </LinearGradient>
+            {renderLargeTitle()}
+            {renderLinearGradientContainer()}
           </View>
         </ImageBackground>
       </RNBounceable>
     </Androw>
   );
-};
-
-AppOfTheDayCard.defaultProps = {
-  shadowColor: "#000",
-  title: "Colorfy: Coloring Art Games",
-  subtitle: "Drawing & painting for  everyone",
-  largeTitle: `APP` + "\n" + `OF THE` + "\n" + `DAY`,
-  buttonText: "GET",
-  buttonSubtitle: "In-App Purchases",
 };
 
 export default AppOfTheDayCard;

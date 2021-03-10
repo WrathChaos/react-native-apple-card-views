@@ -1,9 +1,16 @@
-import { ViewStyle, TextStyle, StyleSheet, Dimensions } from "react-native";
+import {
+  ViewStyle,
+  TextStyle,
+  ImageStyle,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 const { width: ScreenWidth, height: ScreenHeight } = Dimensions.get("window");
 
 interface Style {
   container: ViewStyle;
-  iconStyle: ViewStyle;
+  shadowStyle: ViewStyle;
+  iconStyle: ImageStyle;
   gradientStyle: ViewStyle;
   titleContainer: ViewStyle;
   innerContainer: ViewStyle;
@@ -16,25 +23,22 @@ interface Style {
   gradientInnerContainer: ViewStyle;
   buttonSubtitleTextStyle: TextStyle;
 }
-
-export function _shadowStyle(shadowColor) {
-  return {
-    flex: 1,
-    shadowColor,
-    shadowRadius: 6,
-    shadowOpacity: 0.2,
-    shadowOffset: {
-      width: 0,
-      height: 9,
-    },
-  };
-}
 export default StyleSheet.create<Style>({
   container: {
     height: ScreenHeight * 0.5,
     width: ScreenWidth * 0.9,
     borderRadius: 8,
     flexDirection: "column",
+  },
+  shadowStyle: {
+    flex: 1,
+    shadowColor: "#000",
+    shadowRadius: 6,
+    shadowOpacity: 0.2,
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
   },
   innerContainer: {
     left: 16,
