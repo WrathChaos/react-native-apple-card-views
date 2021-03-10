@@ -75,7 +75,7 @@ npm i react-native-apple-card-views
 
 ### Configuration - Props
 
-#### Apple Header Props
+#### AppleCard Props
 
 | Property            |   Type   |                                  Default                                   | Description                           |
 | ------------------- | :------: | :------------------------------------------------------------------------: | ------------------------------------- |
@@ -91,7 +91,7 @@ npm i react-native-apple-card-views
 | footnoteTextStyle   |  style   |                                  default                                   | set custom style for footnote         |
 | onPress             | function |                                    null                                    | use this to set onPress functionality |
 
-#### App Of The Day Card Props
+#### AppOfTheDayCard Props
 
 | Property            |   Type   |    Default     | Description                            |
 | ------------------- | :------: | :------------: | -------------------------------------- |
