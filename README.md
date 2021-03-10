@@ -112,6 +112,11 @@ npm i react-native-apple-card-views
 | buttonOnPress       |   function    |               null                | set a function for button's onPress               |
 | onPress             |   function    |               null                | set a function for main card's onPress            |
 
+## Roadmap
+
+- [ ] `AppleCard` Rewritten and Code Cleaning
+- [ ] `AppleCard` More Customization Options
+
 ## Author
 
 FreakyCoder, kurayogun@gmail.com
