@@ -8,7 +8,6 @@ import {
   TextStyle,
   ImageStyle,
   ImageBackground,
-  TouchableOpacity,
 } from "react-native";
 import Androw from "react-native-androw";
 import LinearGradient from "react-native-linear-gradient";
@@ -96,12 +95,9 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
 
   const renderButtonContainer = () => (
     <View style={styles.buttonContainer}>
-      <TouchableOpacity
-        style={styles.buttonInnerContainer}
-        onPress={buttonOnPress}
-      >
+      <RNBounceable style={styles.buttonInnerContainer} onPress={buttonOnPress}>
         <Text style={styles.buttonTextStyle}>{buttonText}</Text>
-      </TouchableOpacity>
+      </RNBounceable>
       <Text style={[styles.buttonSubtitleTextStyle, buttonSubtitleTextStyle]}>
         {buttonSubtitle}
       </Text>
