@@ -31,24 +31,23 @@
     "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
+    "@freakycoder/react-native-bounceable": "^0.1.1",
     "react": ">= 16.x.x",
     "react-native": ">= 0.55.x",
     "react-native-androw": ">= 0.0.33",
-    "react-native-linear-gradient": ">= 2.5.6",
-    "@freakycoder/react-native-bounceable": "^0.1.1"
+    "react-native-linear-gradient": ">= 2.5.6"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-native": "^0.63.0",
-    "react-native-typescript-transformer": "^1.2.13",
-    "typescript": "^4.0.3",
-    "@react-native-community/eslint-config": "^0.0.5",
     "@react-native-community/eslint-config": "^2.0.0",
-    "eslint": "^7.10.0",
+    "@types/react": "^16.9.53",
+    "@types/react-native": "^0.63.25",
+    "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
-    "husky": "^5.0.9",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
+    "react-native-typescript-transformer": "^1.2.13",
+    "typescript": "^4.0.3"
   },
   "husky": {
     "hooks": {
