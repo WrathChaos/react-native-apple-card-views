@@ -43,7 +43,7 @@
     "@types/react-native": "^0.63.25",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
-    "husky": "^4.3.0",
+    "husky": "^5.1.3",
     "lint-staged": "^10.4.2",
     "prettier": "^2.1.2",
     "react-native-typescript-transformer": "^1.2.13",
