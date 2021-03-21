@@ -1,6 +1,6 @@
 {
   "name": "react-native-apple-card-views",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Fully customizable and perfect clone of Apple, App Store Card Views for React Native",
   "keywords": [
     "bounceable",
@@ -31,7 +31,7 @@
     "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
-    "@freakycoder/react-native-bounceable": "^0.1.1",
+    "@freakycoder/react-native-bounceable": ">= 0.1.1",
     "react": ">= 16.x.x",
     "react-native": ">= 0.55.x",
     "react-native-androw": ">= 0.0.33",
