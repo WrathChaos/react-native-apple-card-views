@@ -29,6 +29,12 @@ Add the dependency:
 npm i react-native-apple-card-views
 ```
 
+## Expo Version
+
+```bash
+npm i react-native-apple-card-views#expo
+```
+
 ## Peer Dependencies
 
 ##### IMPORTANT! You need install them
