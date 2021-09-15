@@ -56,8 +56,8 @@ npm i react-native-apple-card-views#expo
 
 # Options
 
-- AppleCard
-- AppOfTheDayCard
+- [AppleCard](https://github.com/WrathChaos/react-native-apple-card-views#applecard-usage)
+- [AppOfTheDayCard](https://github.com/WrathChaos/react-native-apple-card-views#appofthedaycard-usage)
 
 # Usage
 
