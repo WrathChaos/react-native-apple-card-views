@@ -45,6 +45,15 @@ npm i react-native-apple-card-views#expo
 "@freakycoder/react-native-bounceable": ">= 0.1.1"
 ```
 
+## Expo Peer Dependencies
+
+##### IMPORTANT! You need install them
+
+```bash
+"expo-linear-gradient": ">= 9.2.0"
+"@freakycoder/react-native-bounceable": ">= 0.1.1"
+```
+
 # Options
 
 - AppleCard
