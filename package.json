@@ -40,7 +40,7 @@
   "devDependencies": {
     "@react-native-community/eslint-config": "^3.0.0",
     "@types/react": "^17.0.3",
-    "@types/react-native": "^0.66.1",
+    "@types/react-native": "^0.67.1",
     "eslint": "^8.0.0",
     "eslint-config-airbnb": "^19.0.0",
     "husky": "^7.0.0",
