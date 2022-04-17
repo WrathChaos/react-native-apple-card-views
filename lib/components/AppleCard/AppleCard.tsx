@@ -1,5 +1,13 @@
 import * as React from "react";
-import { Text, View, ImageBackground } from "react-native";
+import {
+  Text,
+  View,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  ImageBackground,
+  ImageSourcePropType,
+} from "react-native";
 import Androw from "react-native-androw";
 import RNBounceable from "@freakycoder/react-native-bounceable";
 /**
@@ -7,17 +15,20 @@ import RNBounceable from "@freakycoder/react-native-bounceable";
  */
 import styles, { _shadowStyle } from "./AppleCard.style";
 
+type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
+type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<ViewStyle>>;
+
 interface IProps {
-  style?: any;
-  source: any; // ? Not Optional
-  smallTitle?: string;
-  largeTitle?: string;
+  source: ImageSourcePropType;
+  style?: CustomStyleProp;
+  smallTitle: string;
+  largeTitle: string;
+  footnoteText: string;
   shadowColor?: string;
-  footnoteText?: string;
-  backgroundStyle?: any;
-  footnoteTextStyle?: any;
-  smallTitleTextStyle?: any;
-  largeTitleTextStyle?: any;
+  backgroundStyle?: CustomStyleProp;
+  footnoteTextStyle?: CustomTextStyleProp;
+  smallTitleTextStyle?: CustomTextStyleProp;
+  largeTitleTextStyle?: CustomTextStyleProp;
   onPress: () => void;
 }
 

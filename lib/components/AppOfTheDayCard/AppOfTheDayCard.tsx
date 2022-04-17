@@ -31,7 +31,7 @@ interface IAppOfTheDayCardProps {
   subtitleTextStyle?: CustomTextStyleProp;
   largeTitleTextStyle?: CustomTextStyleProp;
   buttonSubtitleTextStyle?: CustomTextStyleProp;
-  gradientColors?: Array<string>;
+  gradientColors?: string[];
   title: string;
   iconSource: any;
   subtitle?: string;
