@@ -3,6 +3,8 @@
 node_modules
 # Example 
 example
+example-expo
 # Assets
 Assets
 assets
+.github

@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, ScrollView, StatusBar } from "react-native";
 import AppleHeader from "react-native-apple-header";
-import { AppleCard, AppOfTheDayCard } from "./build/dist/index";
+import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
 
 const App = () => {
   return (

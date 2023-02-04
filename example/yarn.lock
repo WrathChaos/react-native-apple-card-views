@@ -1079,7 +1079,7 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
-"@freakycoder/react-native-bounceable@^1.0.3":
+"@freakycoder/react-native-bounceable@^1.0.3", "@freakycoder/react-native-bounceable@>= 0.1.1":
   "integrity" "sha512-+iMq2tnqxCwFjitbPUz9nZ+VfJ8OU9waIlDJAAsoq1229QEwCmERCNy5zVtDsz75q3i4FLXX/n7fimdMzmP21A=="
   "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-1.0.3.tgz"
   "version" "1.0.3"
@@ -6109,6 +6109,13 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-native-apple-card-views@^3.0.0":
+  "integrity" "sha512-sUqNIzXATfroCWRQo8kOV15TPyegO9/C1kzZHO8H1yX1fnByT9Rm/wOwmUqKES9H9abJ+LE+pxpzDT/YW1W+3g=="
+  "resolved" "https://registry.npmjs.org/react-native-apple-card-views/-/react-native-apple-card-views-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "@freakycoder/react-native-bounceable" ">= 0.1.1"
 
 "react-native-apple-header@^0.1.1":
   "integrity" "sha512-olhk1icxbmX4p320+iE3NunTQOlqBHMxHp/HcQ3XiUpPzekLPhJKK0r5dZfp80LEdcdxnZKhJMJqq0FquIG/VQ=="
