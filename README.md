@@ -19,39 +19,27 @@
   <img alt="React Native Apple Card Views" src="assets/Screenshots/RN-Apple-Card-Views.gif" />
 </p>
 
-## Installation
+
+Version 3 🥳 🚀
+- Only one dependency is required 🏝️
+- Other dependencies are removed/extracted
+- Expo Compatible 🎪
+- Code cleaning 🧹
+
+## Installation & Expo Compatible
 
 Add the dependency:
 
-### Pure React Native
-
 ```bash
 npm i react-native-apple-card-views
-```
-
-## Expo Version
-
-```bash
-npm i react-native-apple-card-views#expo
 ```
 
 ## Peer Dependencies
 
 ##### IMPORTANT! You need install them
 
-```bash
-"react-native-androw": ">= 0.0.33",
-"react-native-linear-gradient": ">= 2.5.6",
-"@freakycoder/react-native-bounceable": ">= 0.1.1"
-```
-
-## Expo Peer Dependencies
-
-##### IMPORTANT! You need install them
-
-```bash
-"expo-linear-gradient": ">= 9.2.0"
-"@freakycoder/react-native-bounceable": ">= 0.1.1"
+```json
+"@freakycoder/react-native-bounceable": ">= 1.0.3"
 ```
 
 # Options
@@ -65,15 +53,13 @@ npm i react-native-apple-card-views#expo
 
 ```jsx
 <AppleCard
-  smallTitle=""
-  largeTitle=""
-  footnoteText=""
-  resizeMode="cover"
   source={require("./assets/hero_bg_brawlstars_.jpg")}
-  backgroundStyle={{
-    height: 200,
-  }}
   onPress={() => {}}
+  smallTitle={"NEW GAME"}
+  largeTitle={"The Brilliance of Brawl Starts"}
+  footnote={
+    "The next game from the markers of Clash Royale is here. Tap to learn more."
+  }
 />
 ```
 
@@ -81,10 +67,15 @@ npm i react-native-apple-card-views#expo
 
 ```jsx
 <AppOfTheDayCard
+  title={"Colorfy: Coloring Art Games"}
+  subtitle={"Drawing & painting for  everyone"}
+  largeTitle={"APP" + "\n" + "OF THE" + "\n" + "DAY"}
+  buttonText={"GET"}
   iconSource={require("./assets/Colorfy.jpg")}
   backgroundSource={require("./assets/ColorfyBG.jpg")}
+  buttonSubtitle={"In-App Purchases"}
   onPress={() => {}}
-  buttonOnPress={() => {}}
+  onButtonPress={() => {}}
 />
 ```
 
@@ -96,7 +87,6 @@ npm i react-native-apple-card-views#expo
 | ------------------- | :------: | :------------------------------------------------------------------------: | ------------------------------------- |
 | source              |  image   |                               default image                                | set the image background              |
 | style               |  style   |                                  default                                   | change the style of the card          |
-| shadowColor         |  color   |                                    #000                                    | change the main card's shadow color   |
 | smallTitle          |  string  |                                  NEW GAME                                  | change the small title                |
 | largeTitle          |  string  |                       The Brilliance of Brawl Stars                        | change the main large title           |
 | footnoteText        |  string  | The next game from the markers of Clash Royale is here. Tap to learn more. | change the footnote text              |
@@ -108,29 +98,28 @@ npm i react-native-apple-card-views#expo
 
 #### AppOfTheDayCard Props
 
-| Property            |     Type      |              Default              | Description                                       |
-| ------------------- | :-----------: | :-------------------------------: | ------------------------------------------------- |
-| style               |     style     |              default              | change the style of the card and image background |
-| shadowStyle         |     style     |              default              | change the style of the card's shadow             |
-| backgroundSource    |     image     |           default image           | set the image background for main card            |
-| iconSource          |     image     |           default image           | set the logo image                                |
-| largeTitle          |    string     |         "APP OF THE DAY"          | change the main large title                       |
-| title               |    string     |   "Colorfy: Coloring Art Games"   | change the title text                             |
-| subtitle            |    string     | "Drawing & painting for everyone" | change the subtitle text                          |
-| buttonText          |    string     |               "GET"               | change the button's text                          |
-| gradientColors      | Array<string> | ["#de9c7c", "#ef9f81", "#efa192"] | change the gradient colors                        |
-| buttonSubtitle      |    string     |        "In-App Purchases"         | change the button's bottom subtitle               |
-| largeTitleTextStyle |     style     |              default              | set the custom style for large title              |
-| subtitleTextStyle   |     style     |              default              | set the custom style for subtitle text            |
-| titleTextStyle      |     style     |              default              | set the custom style for title text               |
-| iconStyle           |     style     |              default              | set the custom style for icon                     |
-| buttonOnPress       |   function    |               null                | set a function for button's onPress               |
-| onPress             |   function    |               null                | set a function for main card's onPress            |
+| Property            |   Type   |              Default              | Description                                       |
+| ------------------- | :------: | :-------------------------------: | ------------------------------------------------- |
+| style               |  style   |              default              | change the style of the card and image background |
+| shadowStyle         |  style   |              default              | change the style of the card's shadow             |
+| backgroundSource    |  image   |           default image           | set the image background for main card            |
+| iconSource          |  image   |           default image           | set the logo image                                |
+| largeTitle          |  string  |         "APP OF THE DAY"          | change the main large title                       |
+| title               |  string  |   "Colorfy: Coloring Art Games"   | change the title text                             |
+| subtitle            |  string  | "Drawing & painting for everyone" | change the subtitle text                          |
+| buttonText          |  string  |               "GET"               | change the button's text                          |
+| buttonSubtitle      |  string  |        "In-App Purchases"         | change the button's bottom subtitle               |
+| largeTitleTextStyle |  style   |              default              | set the custom style for large title              |
+| subtitleTextStyle   |  style   |              default              | set the custom style for subtitle text            |
+| titleTextStyle      |  style   |              default              | set the custom style for title text               |
+| iconStyle           |  style   |              default              | set the custom style for icon                     |
+| buttonOnPress       | function |               null                | set a function for button's onPress               |
+| onPress             | function |               null                | set a function for main card's onPress            |
 
 ## Roadmap
 
-- [ ] `AppleCard` Rewritten and Code Cleaning
-- [ ] `AppleCard` More Customization Options
+- [x] ~~`AppleCard` Rewritten and Code Cleaning~~
+- [x] ~~`AppleCard` More Customization Options~~
 
 ## Author
 
