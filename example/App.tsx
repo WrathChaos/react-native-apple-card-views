@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
-import { SafeAreaView, View, ScrollView, StatusBar } from "react-native";
-import AppleHeader from "react-native-apple-header";
-import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
+import React from 'react';
+import {SafeAreaView, View, ScrollView, StatusBar} from 'react-native';
+import AppleHeader from 'react-native-apple-header';
+import {AppleCard, AppOfTheDayCard} from './build/dist/index';
 
 const App = () => {
   return (
-    <Fragment>
+    <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{flex: 1}}>
         <AppleHeader />
         <ScrollView
           style={{
@@ -16,27 +16,34 @@ const App = () => {
           contentContainerStyle={{
             paddingTop: 16,
             paddingBottom: 32,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <View style={{ marginBottom: 32 }}>
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <View style={{marginBottom: 32}}>
             <AppleCard
-              footnoteText=""
-              source={require("./assets/hero_bg_brawlstars_.jpg")}
+              source={require('./assets/hero_bg_brawlstars_.jpg')}
               onPress={() => {}}
-              resizeMode="cover"
+              smallTitle={'NEW GAME'}
+              largeTitle={'The Brilliance of Brawl Starts'}
+              footnote={
+                'The next game from the markers of Clash Royale is here. Tap to learn more.'
+              }
             />
           </View>
           <AppOfTheDayCard
-            iconSource={require("./assets/Colorfy.jpg")}
-            backgroundSource={require("./assets/ColorfyBG.jpg")}
+            title={'Colorfy: Coloring Art Games'}
+            subtitle={'Drawing & painting for  everyone'}
+            largeTitle={'APP' + '\n' + 'OF THE' + '\n' + 'DAY'}
+            buttonText={'GET'}
+            iconSource={require('./assets/Colorfy.jpg')}
+            backgroundSource={require('./assets/ColorfyBG.jpg')}
+            buttonSubtitle={'In-App Purchases'}
             onPress={() => {}}
-            buttonOnPress={() => {}}
+            onButtonPress={() => {}}
           />
         </ScrollView>
       </SafeAreaView>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Text,
   View,
@@ -8,44 +8,40 @@ import {
   TextStyle,
   ImageStyle,
   ImageBackground,
-} from "react-native";
-import Androw from "react-native-androw";
-import LinearGradient from "react-native-linear-gradient";
-import RNBounceable from "@freakycoder/react-native-bounceable";
+  ImageSourcePropType,
+} from 'react-native';
+import RNBounceable from '@freakycoder/react-native-bounceable';
 /**
  * ? Local Imports
  */
-import styles from "./AppOfTheDayCard.style";
-
-type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
-type CustomImageStyleProp =
-  | StyleProp<ImageStyle>
-  | Array<StyleProp<ImageStyle>>;
-type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<ViewStyle>>;
+import styles from './AppOfTheDayCard.style';
 
 interface IAppOfTheDayCardProps {
-  style?: CustomStyleProp;
-  iconStyle?: CustomImageStyleProp;
-  shadowStyle?: CustomStyleProp;
-  titleTextStyle?: CustomTextStyleProp;
-  subtitleTextStyle?: CustomTextStyleProp;
-  largeTitleTextStyle?: CustomTextStyleProp;
-  buttonSubtitleTextStyle?: CustomTextStyleProp;
-  gradientColors?: string[];
   title: string;
   iconSource: any;
-  subtitle?: string;
-  largeTitle?: string;
-  buttonText?: string;
-  shadowColor?: string;
-  backgroundSource: any;
-  buttonSubtitle?: string;
-  buttonOnPress: () => void;
+  subtitle: string;
+  largeTitle: string;
+  buttonText: string;
+  buttonSubtitle: string;
+  backgroundSource: ImageSourcePropType;
+  style?: StyleProp<ViewStyle>;
+  iconStyle?: StyleProp<ImageStyle>;
+  shadowStyle?: StyleProp<ViewStyle>;
+  titleTextStyle?: StyleProp<TextStyle>;
+  subtitleTextStyle?: StyleProp<TextStyle>;
+  largeTitleTextStyle?: StyleProp<TextStyle>;
+  buttonSubtitleTextStyle?: StyleProp<TextStyle>;
+  gradientColors?: string[];
+  onButtonPress: () => void;
   onPress: () => void;
 }
 
 const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
   style,
+  title,
+  subtitle,
+  largeTitle,
+  buttonSubtitle,
   iconStyle,
   iconSource,
   shadowStyle,
@@ -54,14 +50,9 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
   subtitleTextStyle,
   largeTitleTextStyle,
   buttonSubtitleTextStyle,
-  buttonOnPress,
+  onButtonPress,
+  buttonText,
   onPress,
-  buttonText = "GET",
-  buttonSubtitle = "In-App Purchases",
-  title = "Colorfy: Coloring Art Games",
-  subtitle = "Drawing & painting for  everyone",
-  largeTitle = `APP` + "\n" + `OF THE` + "\n" + `DAY`,
-  gradientColors = ["#de9c7c", "#ef9f81", "#efa192"],
   ...rest
 }) => {
   const renderLargeTitle = () => (
@@ -86,8 +77,7 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
       </Text>
       <Text
         numberOfLines={1}
-        style={[styles.subtitleTextStyle, subtitleTextStyle]}
-      >
+        style={[styles.subtitleTextStyle, subtitleTextStyle]}>
         {subtitle}
       </Text>
     </View>
@@ -95,7 +85,7 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
 
   const renderButtonContainer = () => (
     <View style={styles.buttonContainer}>
-      <RNBounceable style={styles.buttonInnerContainer} onPress={buttonOnPress}>
+      <RNBounceable style={styles.buttonInnerContainer} onPress={onButtonPress}>
         <Text style={styles.buttonTextStyle}>{buttonText}</Text>
       </RNBounceable>
       <Text style={[styles.buttonSubtitleTextStyle, buttonSubtitleTextStyle]}>
@@ -104,45 +94,36 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
     </View>
   );
 
-  const renderLinearGradientContainer = () => (
-    <LinearGradient
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 0 }}
-      colors={gradientColors}
-      style={styles.gradientStyle}
-      {...rest}
-    >
-      <View style={styles.gradientInnerContainer}>
+  const renderBottomBar = () => (
+    <View style={styles.bottomBarStyle}>
+      <View style={styles.innerBottomBarStyle}>
         {renderIcon()}
         {renderTitleContainer()}
         {renderButtonContainer()}
       </View>
-    </LinearGradient>
+    </View>
   );
 
   return (
-    <Androw style={[styles.shadowStyle, shadowStyle]}>
+    <View style={[styles.shadowStyle, shadowStyle]}>
       <RNBounceable
-        bounceEffect={0.95}
-        bounceFriction={4}
+        bounceEffectIn={0.95}
         {...rest}
         style={[styles.container, style]}
-        onPress={onPress}
-      >
+        onPress={onPress}>
         <ImageBackground
           borderRadius={8}
           resizeMode="cover"
           {...rest}
           style={[styles.container, style]}
-          source={backgroundSource}
-        >
+          source={backgroundSource}>
           <View style={styles.innerContainer}>
             {renderLargeTitle()}
-            {renderLinearGradientContainer()}
+            {renderBottomBar()}
           </View>
         </ImageBackground>
       </RNBounceable>
-    </Androw>
+    </View>
   );
 };
 

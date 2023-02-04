@@ -1,6 +1,6 @@
 {
   "name": "react-native-apple-card-views",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Fully customizable and perfect clone of Apple, App Store Card Views for React Native",
   "keywords": [
     "bounceable",
@@ -23,47 +23,39 @@
   "repository": "git@github.com:WrathChaos/react-native-apple-card-views.git",
   "author": "Kuray (FreakyCoder) <kurayogun@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "build": "cd lib && tsc && cp ../package.json ../build/dist/ && Echo Build completed!",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
-  },
-  "peerDependencies": {
-    "@freakycoder/react-native-bounceable": ">= 0.1.1",
-    "react": ">= 16.x.x",
-    "react-native": "^0.68.1",
-    "react-native-androw": ">= 0.0.33",
-    "react-native-linear-gradient": ">= 2.5.6"
+  "dependencies": {
+    "@freakycoder/react-native-bounceable": ">= 0.1.1"
   },
   "devDependencies": {
-    "@react-native-community/eslint-config": "^3.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-native": "^0.71.0",
-    "eslint": "^8.0.0",
-    "eslint-config-airbnb": "^19.0.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.0",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-native": "^0.63.25",
+    "cpx": "^1.5.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^10.4.2",
+    "npm-post-install": "0.0.2",
     "prettier": "^2.1.2",
+    "prettier-format": "^3.0.3",
     "react-native-typescript-transformer": "^1.2.13",
+    "semantic-release": "^19.0.5",
     "typescript": "^4.0.3"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "./src/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "eslint src/*.js --fix-dry-run"
-    ]
-  },
-  "dependencies": {
-    "react-native-androw": ">= 0.0.33",
-    "react-native-apple-header": "^0.1.1",
-    "react-native-linear-gradient": ">= 2.5.6",
-    "react-native-material-ripple": "^0.9.1"
+  "scripts": {
+    "build": "cd lib && tsc && npm run copy:assets && npm run copy:package",
+    "prepare": "husky install",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prettier": "cd lib && npx prettier --write . && git add .",
+    "husky:setup": "npx husky-init && npm run husky:commitlint && npm run husky:prettier && npm run husky:lint",
+    "husky:commitlint": "npx husky add .husky/commit-msg 'npx --no-install commitlint --edit'",
+    "semantic-release": "semantic-release",
+    "copy:assets": "cpx 'lib/local-assets/**' './build/dist/local-assets'",
+    "copy:package": "cpx '../package.json' '../build/dist/'",
+    "husky:lint": "npx husky add .husky/pre-commit 'npm run lint'",
+    "husky:prettier": "npx husky set .husky/pre-commit 'npm run prettier'"
   }
 }

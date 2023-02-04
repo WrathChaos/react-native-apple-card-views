@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Text,
   View,
@@ -7,62 +7,54 @@ import {
   TextStyle,
   ImageBackground,
   ImageSourcePropType,
-} from "react-native";
-import Androw from "react-native-androw";
-import RNBounceable from "@freakycoder/react-native-bounceable";
+} from 'react-native';
+import RNBounceable from '@freakycoder/react-native-bounceable';
 /**
  * ? Local Imports
  */
-import styles, { _shadowStyle } from "./AppleCard.style";
-
-type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
-type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<ViewStyle>>;
+import styles from './AppleCard.style';
 
 interface IProps {
   source: ImageSourcePropType;
-  style?: CustomStyleProp;
   smallTitle: string;
   largeTitle: string;
-  footnoteText: string;
-  shadowColor?: string;
-  backgroundStyle?: CustomStyleProp;
-  footnoteTextStyle?: CustomTextStyleProp;
-  smallTitleTextStyle?: CustomTextStyleProp;
-  largeTitleTextStyle?: CustomTextStyleProp;
+  footnote: string;
   onPress: () => void;
+  style?: StyleProp<ViewStyle>;
+  shadowStyle?: StyleProp<ViewStyle>;
+  backgroundStyle?: StyleProp<ViewStyle>;
+  footnoteTextStyle?: StyleProp<TextStyle>;
+  smallTitleTextStyle?: StyleProp<TextStyle>;
+  largeTitleTextStyle?: StyleProp<TextStyle>;
 }
 
-const AppleCard: React.FC<IProps> = (props: IProps) => {
-  const {
-    source,
-    style,
-    shadowColor,
-    footnoteText,
-    footnoteTextStyle,
-    backgroundStyle,
-    smallTitle,
-    largeTitle,
-    smallTitleTextStyle,
-    largeTitleTextStyle,
-    onPress,
-  } = props;
-
+const AppleCard: React.FC<IProps> = ({
+  source,
+  style,
+  footnote,
+  footnoteTextStyle,
+  backgroundStyle,
+  smallTitle,
+  largeTitle,
+  shadowStyle,
+  smallTitleTextStyle,
+  largeTitleTextStyle,
+  onPress,
+  ...rest
+}) => {
   return (
-    <Androw style={_shadowStyle(shadowColor)}>
+    <View style={[styles.shadowStyle, shadowStyle]}>
       <RNBounceable
-        bounceEffect={0.95}
-        bounceFriction={4}
-        {...props}
+        bounceEffectIn={0.95}
+        {...rest}
         style={style}
-        onPress={onPress}
-      >
+        onPress={onPress}>
         <ImageBackground
-          {...props}
+          {...rest}
           source={source}
           borderRadius={8}
           resizeMode="cover"
-          style={[styles.backgroundStyle, backgroundStyle]}
-        >
+          style={[styles.backgroundStyle, backgroundStyle]}>
           <View style={styles.topHeaderContainer}>
             <Text style={[styles.smallTitleTextStyle, smallTitleTextStyle]}>
               {smallTitle}
@@ -73,21 +65,13 @@ const AppleCard: React.FC<IProps> = (props: IProps) => {
           </View>
           <View style={styles.bottomContainer}>
             <Text style={[styles.footnoteTextStyle, footnoteTextStyle]}>
-              {footnoteText}
+              {footnote}
             </Text>
           </View>
         </ImageBackground>
       </RNBounceable>
-    </Androw>
+    </View>
   );
-};
-
-AppleCard.defaultProps = {
-  shadowColor: "#000",
-  smallTitle: "NEW GAME",
-  largeTitle: "The Brilliance of Brawl Stars",
-  footnoteText:
-    "The next game from the markers of Clash Royale is here. Tap to learn more.",
 };
 
 export default AppleCard;
