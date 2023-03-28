@@ -41,7 +41,7 @@
     "prettier": "^2.1.2",
     "prettier-format": "^3.0.3",
     "react-native-typescript-transformer": "^1.2.13",
-    "semantic-release": "^20.1.0",
+    "semantic-release": "^21.0.0",
     "typescript": "^5.0.2"
   },
   "scripts": {
