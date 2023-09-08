@@ -39,7 +39,7 @@
     "lint-staged": "^14.0.0",
     "npm-post-install": "0.0.2",
     "prettier": "^3.0.0",
-    "prettier-format": "^3.0.3",
+    "prettier-format": "^4.0.0",
     "react-native-typescript-transformer": "^1.2.13",
     "semantic-release": "^21.0.0",
     "typescript": "^5.0.2"
