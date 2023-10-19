@@ -36,7 +36,7 @@
     "eslint": "^8.33.0",
     "eslint-config-airbnb": "^18.2.0",
     "husky": "^8.0.0",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^15.0.2",
     "npm-post-install": "0.0.2",
     "prettier": "^3.0.0",
     "prettier-format": "^4.0.0",
