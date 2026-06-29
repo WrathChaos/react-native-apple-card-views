@@ -39,6 +39,7 @@
     "lib",
     "!**/__tests__",
     "!**/__mocks__",
+    "!**/*.tsbuildinfo",
     "LICENSE",
     "README.md"
   ],
