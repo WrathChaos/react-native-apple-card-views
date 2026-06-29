@@ -1,6 +1,6 @@
 {
   "name": "react-native-apple-card-views",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Fully customizable and perfect clone of Apple, App Store Card Views for React Native",
   "keywords": [
     "bounceable",
@@ -17,45 +17,86 @@
     "ui-lib",
     "rn"
   ],
-  "homepage": "https://www.freakycoder.com",
-  "bugs": "https://github.com/WrathChaos/react-native-apple-card-views/issues",
+  "homepage": "https://github.com/kuraydev/react-native-apple-card-views#readme",
+  "bugs": {
+    "url": "https://github.com/kuraydev/react-native-apple-card-views/issues"
+  },
   "main": "./build/dist/index.js",
-  "repository": "git@github.com:WrathChaos/react-native-apple-card-views.git",
+  "module": "./build/dist/index.js",
+  "types": "./build/dist/index.d.ts",
+  "react-native": "lib/index",
+  "source": "lib/index",
+  "exports": {
+    ".": {
+      "types": "./build/dist/index.d.ts",
+      "react-native": "./lib/index.ts",
+      "default": "./build/dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "build",
+    "lib",
+    "!**/__tests__",
+    "!**/__mocks__",
+    "!**/*.tsbuildinfo",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuraydev/react-native-apple-card-views.git"
+  },
   "author": "Kuray (FreakyCoder) <kurayogun@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "@freakycoder/react-native-bounceable": ">= 0.1.1"
+  "peerDependencies": {
+    "@freakycoder/react-native-bounceable": ">=1.0.0",
+    "react": ">=17.0.0",
+    "react-native": ">=0.64.0"
+  },
+  "peerDependenciesMeta": {
+    "@freakycoder/react-native-bounceable": {
+      "optional": false
+    }
   },
   "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/runtime": "^7.24.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.4.1",
-    "@react-native-community/eslint-config": "^3.2.0",
-    "@types/react": "^19.0.1",
-    "@types/react-native": "^0.73.0",
-    "cpx": "^1.5.0",
+    "@eslint/js": "^9.2.0",
+    "@freakycoder/react-native-bounceable": "^1.0.3",
+    "@react-native/babel-preset": "^0.74.0",
+    "@testing-library/react-native": "^12.5.0",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.3.0",
+    "@types/react-test-renderer": "^18.3.0",
     "eslint": "^9.2.0",
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
     "lint-staged": "^16.0.0",
-    "npm-post-install": "0.0.2",
     "prettier": "^3.0.0",
-    "prettier-format": "^4.0.0",
-    "react-native-typescript-transformer": "^1.2.13",
+    "react": "18.3.1",
+    "react-native": "0.74.5",
+    "react-test-renderer": "18.3.1",
     "semantic-release": "^24.0.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "typescript-eslint": "^7.18.0"
   },
   "scripts": {
-    "build": "cd lib && tsc && npm run copy:assets && npm run copy:package",
-    "prepare": "husky install",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
-    "prettier": "cd lib && npx prettier --write . && git add .",
-    "husky:setup": "npx husky-init && npm run husky:commitlint && npm run husky:prettier && npm run husky:lint",
-    "husky:commitlint": "npx husky add .husky/commit-msg 'npx --no-install commitlint --edit'",
-    "semantic-release": "semantic-release",
-    "copy:assets": "cpx 'lib/local-assets/**' './build/dist/local-assets'",
-    "copy:package": "cpx '../package.json' '../build/dist/'",
-    "husky:lint": "npx husky add .husky/pre-commit 'npm run lint'",
-    "husky:prettier": "npx husky set .husky/pre-commit 'npm run prettier'"
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
+    "prepare": "husky || true",
+    "format": "prettier --write \"lib/**/*.{ts,tsx}\"",
+    "lint": "eslint lib",
+    "lint:fix": "eslint lib --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "semantic-release": "semantic-release"
   }
 }

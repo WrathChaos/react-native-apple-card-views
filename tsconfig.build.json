@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "rootDir": "lib",
+    "outDir": "build/dist",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "types": ["react", "react-native"]
+  },
+  "include": ["lib"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "example",
+    "example-expo",
+    "**/__tests__/**",
+    "**/__mocks__/**",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}

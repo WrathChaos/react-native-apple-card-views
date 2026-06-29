@@ -7,14 +7,15 @@ import {
   TextStyle,
   ImageBackground,
   ImageSourcePropType,
+  useWindowDimensions,
 } from 'react-native';
 import RNBounceable from '@freakycoder/react-native-bounceable';
 /**
  * ? Local Imports
  */
-import styles from './AppleCard.style';
+import makeStyles from './AppleCard.style';
 
-interface IProps {
+export interface IAppleCardProps {
   source: ImageSourcePropType;
   smallTitle: string;
   largeTitle: string;
@@ -26,9 +27,10 @@ interface IProps {
   footnoteTextStyle?: StyleProp<TextStyle>;
   smallTitleTextStyle?: StyleProp<TextStyle>;
   largeTitleTextStyle?: StyleProp<TextStyle>;
+  accessibilityLabel?: string;
 }
 
-const AppleCard: React.FC<IProps> = ({
+const AppleCard: React.FC<IAppleCardProps> = ({
   source,
   style,
   footnote,
@@ -39,18 +41,24 @@ const AppleCard: React.FC<IProps> = ({
   shadowStyle,
   smallTitleTextStyle,
   largeTitleTextStyle,
+  accessibilityLabel,
   onPress,
   ...rest
 }) => {
+  const {width, height} = useWindowDimensions();
+  const styles = React.useMemo(() => makeStyles(width, height), [width, height]);
+
   return (
     <View style={[styles.shadowStyle, shadowStyle]}>
       <RNBounceable
         bounceEffectIn={0.95}
-        {...rest}
+        accessibilityRole="button"
+        accessibilityLabel={accessibilityLabel ?? largeTitle}
+        hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
         style={style}
-        onPress={onPress}>
+        onPress={onPress}
+        {...rest}>
         <ImageBackground
-          {...rest}
           source={source}
           borderRadius={8}
           resizeMode="cover"
@@ -74,4 +82,9 @@ const AppleCard: React.FC<IProps> = ({
   );
 };
 
-export default AppleCard;
+AppleCard.displayName = 'AppleCard';
+
+const MemoizedAppleCard = React.memo(AppleCard);
+MemoizedAppleCard.displayName = 'AppleCard';
+
+export default MemoizedAppleCard;

@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "es6",
-    "lib": ["es6"],
+    "module": "es2015",
+    "lib": ["es2019"],
     "allowJs": true,
     "jsx": "react-native",
     "noImplicitAny": false,
-    "incremental": true /* Enable incremental compilation */,
+    "incremental": true,
     "isolatedModules": true,
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": "./",
-    "outDir": "build/dist",
+    "noEmit": true,
     "noEmitHelpers": true,
     "alwaysStrict": true,
     "strictFunctionTypes": true,
@@ -24,16 +24,8 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "typeRoots": ["./node_modules/@types", "./@types"],
-    "declaration": true /* Generates corresponding '.d.ts' file. */,
-    "sourceMap": true /* Generates corresponding '.map' file. */
+    "types": ["jest", "react", "react-native"]
   },
-  "exclude": [
-    "example",
-    "example-manual-state",
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "include": ["lib"],
+  "exclude": ["node_modules", "build", "example", "example-expo"]
 }
