@@ -9,16 +9,17 @@ import {
   ImageStyle,
   ImageBackground,
   ImageSourcePropType,
+  useWindowDimensions,
 } from 'react-native';
 import RNBounceable from '@freakycoder/react-native-bounceable';
 /**
  * ? Local Imports
  */
-import styles from './AppOfTheDayCard.style';
+import makeStyles from './AppOfTheDayCard.style';
 
-interface IAppOfTheDayCardProps {
+export interface IAppOfTheDayCardProps {
   title: string;
-  iconSource: any;
+  iconSource: ImageSourcePropType;
   subtitle: string;
   largeTitle: string;
   buttonText: string;
@@ -31,7 +32,12 @@ interface IAppOfTheDayCardProps {
   subtitleTextStyle?: StyleProp<TextStyle>;
   largeTitleTextStyle?: StyleProp<TextStyle>;
   buttonSubtitleTextStyle?: StyleProp<TextStyle>;
+  /**
+   * @deprecated Reserved for a future gradient overlay. Currently a no-op so
+   * the visual output is unchanged; kept to preserve the public prop surface.
+   */
   gradientColors?: string[];
+  accessibilityLabel?: string;
   onButtonPress: () => void;
   onPress: () => void;
 }
@@ -50,76 +56,75 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
   subtitleTextStyle,
   largeTitleTextStyle,
   buttonSubtitleTextStyle,
+  // Destructured purely so it is excluded from `...rest`; intentionally unused.
+  gradientColors: _gradientColors,
+  accessibilityLabel,
   onButtonPress,
   buttonText,
   onPress,
   ...rest
 }) => {
-  const renderLargeTitle = () => (
-    <Text style={[styles.largeTitleTextStyle, largeTitleTextStyle]}>
-      {largeTitle}
-    </Text>
-  );
-
-  const renderIcon = () => (
-    <Image
-      borderRadius={12}
-      resizeMode="cover"
-      source={iconSource}
-      style={[styles.iconStyle, iconStyle]}
-    />
-  );
-
-  const renderTitleContainer = () => (
-    <View style={styles.titleContainer}>
-      <Text numberOfLines={2} style={[styles.titleTextStyle, titleTextStyle]}>
-        {title}
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={[styles.subtitleTextStyle, subtitleTextStyle]}>
-        {subtitle}
-      </Text>
-    </View>
-  );
-
-  const renderButtonContainer = () => (
-    <View style={styles.buttonContainer}>
-      <RNBounceable style={styles.buttonInnerContainer} onPress={onButtonPress}>
-        <Text style={styles.buttonTextStyle}>{buttonText}</Text>
-      </RNBounceable>
-      <Text style={[styles.buttonSubtitleTextStyle, buttonSubtitleTextStyle]}>
-        {buttonSubtitle}
-      </Text>
-    </View>
-  );
-
-  const renderBottomBar = () => (
-    <View style={styles.bottomBarStyle}>
-      <View style={styles.innerBottomBarStyle}>
-        {renderIcon()}
-        {renderTitleContainer()}
-        {renderButtonContainer()}
-      </View>
-    </View>
-  );
+  const {width, height} = useWindowDimensions();
+  const styles = React.useMemo(() => makeStyles(width, height), [width, height]);
 
   return (
     <View style={[styles.shadowStyle, shadowStyle]}>
       <RNBounceable
         bounceEffectIn={0.95}
-        {...rest}
+        accessibilityRole="button"
+        accessibilityLabel={accessibilityLabel ?? title}
+        hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
         style={[styles.container, style]}
-        onPress={onPress}>
+        onPress={onPress}
+        {...rest}>
         <ImageBackground
           borderRadius={8}
           resizeMode="cover"
-          {...rest}
           style={[styles.container, style]}
           source={backgroundSource}>
           <View style={styles.innerContainer}>
-            {renderLargeTitle()}
-            {renderBottomBar()}
+            <Text style={[styles.largeTitleTextStyle, largeTitleTextStyle]}>
+              {largeTitle}
+            </Text>
+            <View style={styles.bottomBarStyle}>
+              <View style={styles.innerBottomBarStyle}>
+                <Image
+                  borderRadius={12}
+                  resizeMode="cover"
+                  source={iconSource}
+                  style={[styles.iconStyle, iconStyle]}
+                />
+                <View style={styles.titleContainer}>
+                  <Text
+                    numberOfLines={2}
+                    style={[styles.titleTextStyle, titleTextStyle]}>
+                    {title}
+                  </Text>
+                  <Text
+                    numberOfLines={1}
+                    style={[styles.subtitleTextStyle, subtitleTextStyle]}>
+                    {subtitle}
+                  </Text>
+                </View>
+                <View style={styles.buttonContainer}>
+                  <RNBounceable
+                    accessibilityRole="button"
+                    accessibilityLabel={buttonText}
+                    hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+                    style={styles.buttonInnerContainer}
+                    onPress={onButtonPress}>
+                    <Text style={styles.buttonTextStyle}>{buttonText}</Text>
+                  </RNBounceable>
+                  <Text
+                    style={[
+                      styles.buttonSubtitleTextStyle,
+                      buttonSubtitleTextStyle,
+                    ]}>
+                    {buttonSubtitle}
+                  </Text>
+                </View>
+              </View>
+            </View>
           </View>
         </ImageBackground>
       </RNBounceable>
@@ -127,4 +132,9 @@ const AppOfTheDayCard: React.FC<IAppOfTheDayCardProps> = ({
   );
 };
 
-export default AppOfTheDayCard;
+AppOfTheDayCard.displayName = 'AppOfTheDayCard';
+
+const MemoizedAppOfTheDayCard = React.memo(AppOfTheDayCard);
+MemoizedAppOfTheDayCard.displayName = 'AppOfTheDayCard';
+
+export default MemoizedAppOfTheDayCard;
