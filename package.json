@@ -88,6 +88,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
     "prepare": "husky || true",
     "format": "prettier --write \"lib/**/*.{ts,tsx}\"",
     "lint": "eslint lib",
